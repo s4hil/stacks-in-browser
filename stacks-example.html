@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stacks</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar bg-dark navbar-dark">
+		<div class="navbar-brand">
+			<h2>Stacks Application</h2>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h4 class="alert alert-info text-center mt-5">Stacks In Browsers</h4>
+		<div class="row">
+			<div class="col col-lg-4">
+				<h5>Links</h5>
+				<ul id="link-list">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Facebook</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Youtube</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Instagram</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Whatsapp</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">GeeksForGeeks</a>
+					</li>
+				</ul>
+				<button id="backBtn" class="btn btn-primary">Back</button>
+			</div>
+			<div class="col col-lg-8">
+				<h5>Stack Status</h5>
+				<table class="table table-striped">
+					<thead class="table-dark text-white">
+						<tr>
+							<th>Stack</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody id="table-body">
+						<tr>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script src="jquery.min.js"></script>
+	<script>
+		// let tableContent = "";
+		$("#link-list").on('click', '.nav-item', function () {
+			let clickedOption = $(this).text().trim();
+			let tableContent = $("#table-body").html();
+			let toPrepend = "<tr><td>"+ clickedOption +"</td><td></td></tr>";
+			let output = toPrepend + tableContent;
+
+			$("#table-body").html(output);
+			setTop();
+		});
+
+		// set status
+		function setTop() {
+			let topBadge = "<button class='btn btn-success'>TOP</button>";
+			$("#table-body").children("tr").children("td:nth-child(2)").html("-");
+			$("#table-body").children("tr:first").children("td:nth-child(2)").html(topBadge);
+		}
+
+		$("#backBtn").click(function () {
+			$("#table-body").children("tr:first").remove();
+			setTop();
+		})
+	</script>
+</body>
+</html>
