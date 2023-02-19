@@ -1,0 +1,18 @@
+###### Applications of Stacks ######
+
+1. In browsers
+	- To keep track of tabs
+	- Go back and forth
+
+2. Games
+	- To keep track of moves
+	- levels eg missions
+
+	
+3. Undo operations
+	- In all word processing softwares
+	- Different apps and programs
+
+4. Back button
+	- follows lifo
+	- goes back to latest state saved
